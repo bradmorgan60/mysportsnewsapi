@@ -1,4 +1,4 @@
-const port = 7999
+const port = process.env.port || 7999 // this is for deploying on Heroku
 
 const axios = require('axios')  // HTTP client for nodejs and the browser
 const express = require('express') // backend framework
