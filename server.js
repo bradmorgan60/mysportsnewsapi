@@ -319,7 +319,7 @@ app.get('/nfl/:teamid', (req, res) => {
         const specificConference = []
 
         $('a:contains("News")',html).each(function () {
-            const title = $(this).text().replace(/\n/g, '')
+            const title = $(this).text()
             const url = $(this).attr('href').replace(/\n/g, '')
                 specificConference.push({
                     title,
