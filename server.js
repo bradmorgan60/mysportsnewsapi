@@ -274,7 +274,7 @@ teams.forEach(football => {
         const $ = cheerio.load(html)
 
         // pulling the a tags with the href attribute (Week 9)
-        $('a:contains("Latest News")', html).each(function () {
+        $('a:contains("News")', html).each(function () {
                 const title = $(this).text().replace(/\n/g, '')
                 const url = $(this).attr('href').replace(/\n/g, '')
 
@@ -318,7 +318,7 @@ app.get('/nfl/:teamid', (req, res) => {
         const $ = cheerio.load(html)
         const specificConference = []
 
-        $('a:contains("Latest News")',html).each(function () {
+        $('a:contains("News")',html).each(function () {
             const title = $(this).text()
             const url = $(this).attr('href')
                 specificConference.push({
