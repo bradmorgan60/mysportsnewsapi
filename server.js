@@ -70,7 +70,7 @@ const teams = [
         address: "http://browns.com/",
         base: "http://browns.com",
         conference: "AFC",
-        division: "north"
+        division: "North"
     },
     {
         name: "Tennessee Titans",
@@ -78,7 +78,7 @@ const teams = [
         address: "https://www.tennesseetitans.com/news",
         base: "https://www.tennesseetitans.com",
         conference: "AFC",
-        division: "south"
+        division: "South"
     },
     {
         name: "Indianapolis Colts",
@@ -275,8 +275,8 @@ teams.forEach(football => {
 
         // pulling the a tags with the href attribute (Week 9)
         $('a:contains("Latest News")', html).each(function () {
-                const title = $(this).text().replace(/\\n/g, '')
-                const url = $(this).attr('href').replace(/\\n/g, '')
+                const title = $(this).text().replace(/\n/g, '')
+                const url = $(this).attr('href').replace(/\n/g, '')
 
                 news.push({
                     title,
@@ -318,9 +318,9 @@ app.get('/nfl/:teamid', (req, res) => {
         const $ = cheerio.load(html)
         const specificConference = []
 
-        $('a:contains("News")',html).each(function () {
+        $('a:contains("Latest News")',html).each(function () {
             const title = $(this).text()
-            const url = $(this).attr('href').replace(/\n/g, '')
+            const url = $(this).attr('href')
                 specificConference.push({
                     title,
                     url: teamBase,
