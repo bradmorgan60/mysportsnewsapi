@@ -7,7 +7,7 @@ const { json, response } = require('express')
 
 const app = express()
 
-const teams = [
+const nfl_teams = [
     {
         name: "Buffalo Bills",
         id: "bills",
@@ -36,7 +36,7 @@ const teams = [
         name: "Miami Dolphins",
         id: 'dolphins',
         address: "https://www.miamidolphins.com/news",
-        base: "",
+        base: "https://www.miamidolphins.com",
         conference: "AFC",
         division: "East"
     },
@@ -265,9 +265,9 @@ const teams = [
     }
 
 ]
-const news = []
+const nfl_news = []
 // pulling the address for each object in the array and displaying it on my web page
-teams.forEach(football => {  
+nfl_teams.forEach(football => {  
     axios.get(football.address)   // chaining -> asynchronous Javascript
     .then(response => {
         const html = response.data
@@ -278,7 +278,7 @@ teams.forEach(football => {
                 const title = $(this).text().replace(/\n/g, '')
                 const url = $(this).attr('href').replace(/\n/g, '')
 
-                news.push({
+                nfl_news.push({
                     title,
                     url,
                     conference: football.conference,
@@ -292,11 +292,11 @@ teams.forEach(football => {
 })
         
 app.get('/', (req,res) => {
-    res.json("Welcome to my NFL News API!")
+    res.json("Welcome to my Sports News API! This API is an ongoing project that will enable you to find news related to football and baseball")
 })
 
 app.get('/nfl', (req,res) => {
-    res.json(news)
+    res.json(nfl_news)
 })
 
 app.get('/nfl/:teamid', (req, res) => {
@@ -305,8 +305,8 @@ app.get('/nfl/:teamid', (req, res) => {
 
     // const confid = req.params.confid
 
-    const teamAddress = teams.filter(football => football.id == teamid)[0].address
-    const teamBase = teams.filter(football => football.id == teamid)[0].address
+    const teamAddress = nfl_teams.filter(football => football.id == teamid)[0].address
+    const teamBase = nfl_teams.filter(football => football.id == teamid)[0].address
 
 
 
