@@ -27,10 +27,11 @@ nfl_teams.forEach(football => {
 
                 nfl_news.push({
                     title,
-                    url: base + url,
+                    url: football.base + url,
                     conference: football.conference,
                     division: football.division,
-                    team: football.name
+                    team: football.name,
+                    home_field: football.home_field
                 })
         })
 
@@ -50,11 +51,11 @@ mlb_teams.forEach(baseball => {
                 const url = $(this).attr('href').replace(/\n/g, '')
 
                 mlb_news.push({
-                    title,
-                    url,
+                    team: baseball.name,
                     league: baseball.league,
                     division: baseball.division,
-                    team: baseball.name
+                    home_field: baseball.home_field,
+                    url
                 })
         })
 
@@ -108,7 +109,35 @@ app.get('/mlb', (req, res) => {
 })
 
 app.get('/mlb/:mlbid', (req, res) => {
+
     const mlbid = req.params.mlbid
+
+    // const confid = req.params.confid
+
+    const teamAddress = mlb_teams.filter(baseball => baseball.id == mlbid)[0].address
+    const teamBase = mlb_teams.filter(baseball => baseball.id == mlbid)[0].address
+
+    // console.log(conferenceAddress)
+
+    axios.get(teamAddress)
+    .then(response => {
+        const html = response.data
+        const $ = cheerio.load(html)
+        const specificconference = []
+
+        $('a:contains("News")',html).each(function () {
+            const title = $(this).text()
+            const url = $(this).attr('href')
+                specificconference.push({
+                    title: title.toString(),
+                    url: teamBase,
+                    source: mlbid
+                })
+        })
+        res.json(specificconference)
+    }).catch(err => console.log(err))
+
+
 })
 
 
