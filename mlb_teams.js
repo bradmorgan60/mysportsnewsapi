@@ -24,7 +24,7 @@ const mlb_teams = [
         id: 'orioles',
         address: "https://www.mlb.com/orioles/news",
         home_field: "Oriole Park",
-        base: "",
+        base: "https://www.mlb.com",
         league: "American",
         division: "East"
     },
@@ -131,7 +131,7 @@ const mlb_teams = [
         name: "Miami Marlins",
         id: 'marlins',
         address: "https://www.mlb.com/marlins/news",
-        base: "",
+        base: "https://www.mlb.com",
         home_field: "loanDepot park",
         league: "National",
         division: "East"
@@ -157,7 +157,7 @@ const mlb_teams = [
     {
         name: "New York Mets",
         id: 'mets',
-        address: "https://www.mets.com/mets/news",
+        address: "https://www.mlb.com/mets/news",
         base: "",
         home_field: "Citi Field",
         league: "National",

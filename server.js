@@ -27,7 +27,7 @@ nfl_teams.forEach(football => {
 
                 nfl_news.push({
                     title,
-                    url,
+                    url: base + url,
                     conference: football.conference,
                     division: football.division,
                     team: football.name
@@ -39,7 +39,7 @@ nfl_teams.forEach(football => {
 })
 const mlb_news = []
 mlb_teams.forEach(baseball => {  
-    axios.get(basaeball.address)   // chaining -> asynchronous Javascript
+    axios.get(baseball.address)   // chaining -> asynchronous Javascript
     .then(response => {
         const html = response.data
         const $ = cheerio.load(html)
@@ -52,7 +52,7 @@ mlb_teams.forEach(baseball => {
                 mlb_news.push({
                     title,
                     url,
-                    conference: baseball.conference,
+                    league: baseball.league,
                     division: baseball.division,
                     team: baseball.name
                 })
