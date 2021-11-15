@@ -4,7 +4,7 @@
   "description": "API for espn.com",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "keywords": [
     "sports"
