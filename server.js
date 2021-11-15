@@ -87,7 +87,7 @@ app.get('/nfl/:nflid', (req, res) => {
         const specificTeam = []
 
         $('a:contains("News")',html).each(function () {
-            const title = $(this).text()
+            const title = $(this).text().replace(/\n/g, '')
             const url = $(this).attr('href')
                 specificTeam.push({
                     title: title.toString(),
@@ -95,7 +95,7 @@ app.get('/nfl/:nflid', (req, res) => {
                     source: nflid
                 })
         })
-        res.json(specificconference)
+        res.json(specificTeam)
     }).catch(err => console.log(err))
 
 
@@ -109,29 +109,25 @@ app.get('/mlb/:mlbid', (req, res) => {
 
     const mlbid = req.params.mlbid
 
-    // const confid = req.params.confid
-
     const teamAddress = mlb_teams.filter(baseball => baseball.id == mlbid)[0].address
     const teamBase = mlb_teams.filter(baseball => baseball.id == mlbid)[0].address
-
-    // console.log(conferenceAddress)
 
     axios.get(teamAddress)
     .then(response => {
         const html = response.data
         const $ = cheerio.load(html)
-        const specificconference = []
+        const specificTeam = []
 
         $('a:contains("News")',html).each(function () {
-            const title = $(this).text()
+            const title = $(this).text().replace(/\n/g, '')
             const url = $(this).attr('href')
-                specificconference.push({
+                specificTeam.push({
                     title: title.toString(),
                     url: teamBase,
                     source: mlbid
                 })
         })
-        res.json(specificconference)
+        res.json(specificTeam)
     }).catch(err => console.log(err))
 
 
