@@ -56,7 +56,7 @@ mlb_teams.forEach(baseball => {
                     division: baseball.division,
                     home_field: baseball.home_field,
                     title,
-                    url
+                    url: baseball.base + url
                 })
         })
 
@@ -87,7 +87,7 @@ app.get('/nfl/:nflid', (req, res) => {
         const specificTeam = []
 
         $('a:contains("News")',html).each(function () {
-            const title = $(this).text().replace(/\n/g, '')
+            const title = $(this).text().replace(/\n/g,'')
             const url = $(this).attr('href')
                 specificTeam.push({
                     title: title.toString(),
