@@ -1,4 +1,4 @@
-const port = process.env.port || 7999 // this is for deploying on Heroku
+const PORT = process.env.PORT || 7999 // this is for deploying on Heroku
 
 const axios = require('axios')  // HTTP client for nodejs and the browser
 const express = require('express') // backend framework
@@ -134,4 +134,4 @@ app.get('/mlb/:mlbid', (req, res) => {
 })
 
 
-app.listen(port, () => console.log(`Server listening on Port ${port}`))
+app.listen(PORT, () => console.log(`Server listening on Port ${PORT}`))
