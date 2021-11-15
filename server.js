@@ -23,15 +23,15 @@ nfl_teams.forEach(football => {
         // pulling the a tags with the href attribute (Week 9)
         $('a:contains("News")', html).each(function () {
                 const title = $(this).text().replace(/\n/g, '')
-                const url = $(this).attr('href').replace(/\n/g, '')
+                const url = $(this).attr('href')
 
                 nfl_news.push({
-                    title,
-                    url: football.base + url,
+                    team: football.name,
                     conference: football.conference,
                     division: football.division,
-                    team: football.name,
-                    home_field: football.home_field
+                    home_field: football.home_field,
+                    title,
+                    url
                 })
         })
 
@@ -48,13 +48,14 @@ mlb_teams.forEach(baseball => {
         // pulling the a tags with the href attribute (Week 9)
         $('a:contains("News")', html).each(function () {
                 const title = $(this).text().replace(/\n/g, '')
-                const url = $(this).attr('href').replace(/\n/g, '')
+                const url = $(this).attr('href')
 
                 mlb_news.push({
                     team: baseball.name,
                     league: baseball.league,
                     division: baseball.division,
                     home_field: baseball.home_field,
+                    title,
                     url
                 })
         })
@@ -65,7 +66,7 @@ mlb_teams.forEach(baseball => {
 
         
 app.get('/', (req,res) => {
-    res.json("Welcome to my Sports News API! This API is an ongoing project that will enable you to find news related to football and baseball")
+    res.json("Welcome to my Sports News API! This API is an ongoing project that will enable you to find news related to your favorite NFL and MLB teams.")
 })
 
 app.get('/nfl', (req,res) => {
@@ -76,23 +77,19 @@ app.get('/nfl/:nflid', (req, res) => {
 
     const nflid = req.params.nflid
 
-    // const confid = req.params.confid
-
     const teamAddress = nfl_teams.filter(football => football.id == nflid)[0].address
     const teamBase = nfl_teams.filter(football => football.id == nflid)[0].address
-
-    // console.log(conferenceAddress)
 
     axios.get(teamAddress)
     .then(response => {
         const html = response.data
         const $ = cheerio.load(html)
-        const specificconference = []
+        const specificTeam = []
 
         $('a:contains("News")',html).each(function () {
             const title = $(this).text()
             const url = $(this).attr('href')
-                specificconference.push({
+                specificTeam.push({
                     title: title.toString(),
                     url: teamBase,
                     source: nflid
