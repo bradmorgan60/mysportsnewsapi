@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 25488 // this is for deploying on Heroku
+const PORT = process.env.PORT // this is for deploying on Heroku
 
 const axios = require('axios')  // HTTP client for nodejs and the browser
 const express = require('express') // backend framework
