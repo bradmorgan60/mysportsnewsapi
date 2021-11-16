@@ -13,7 +13,7 @@ const nfl_teams = [
         name: "New England Patriots",
         id: 'patriots',
         address: "https://www.patriots.com/news",
-        base: "https://www.patriots.com",
+        base: "",
         home_field: "Gillette Stadium",
         conference: "AFC",
         division: "East"

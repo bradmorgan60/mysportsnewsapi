@@ -3,6 +3,7 @@ const PORT = process.env.PORT || 7999// this is for deploying on Heroku
 const axios = require('axios')  // HTTP client for nodejs and the browser
 const express = require('express') // backend framework
 const cheerio = require('cheerio') // parses markup language
+const checker = require('broken-link-checker') // checks for broken links
 
 const nfl_teams = require('./nfl_teams') // data from NFL teams 
 const mlb_teams = require('./mlb_teams') // export data from MLB teams
@@ -24,6 +25,8 @@ nfl_teams.forEach(football => {
             $('a:contains("News")', html).each(function () {
                 const title = $(this).text().replace(/\n/g, '')
                 const url = $(this).attr('href')
+            
+            $()
 
                 nfl_news.push({
                     team: football.name,
