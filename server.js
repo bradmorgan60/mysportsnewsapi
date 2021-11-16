@@ -31,7 +31,7 @@ nfl_teams.forEach(football => {
                     division: football.division,
                     home_field: football.home_field,
                     title,
-                    url
+                    url: football.base + url
                 })
             })
 

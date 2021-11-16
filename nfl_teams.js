@@ -76,7 +76,7 @@ const nfl_teams = [
         name: "Tennessee Titans",
         id: 'titans',
         address: "https://www.tennesseetitans.com/news",
-        base: "https://www.tennesseetitans.com",
+        base: "",
         home_field: "Nissan Stadium",
         conference: "AFC",
         division: "South"
@@ -112,7 +112,7 @@ const nfl_teams = [
         name: "Las Vegas Raiders",
         id: 'raiders',
         address: "https://www.raiders.com/news",
-        base: "https://www.raiders.com",
+        base: "",
         home_field: "Allegiant Stadium",
         conference: "AFC",
         division: "West"
@@ -121,7 +121,7 @@ const nfl_teams = [
         name: "Los Angeles Chargers",
         id: 'chargers',
         address: "https://www.chargers.com/news",
-        base: "https://www.chargers.com",
+        base: "",
         home_field: "SoFi Stadium",
         conference: "AFC",
         division: "West"
@@ -130,7 +130,7 @@ const nfl_teams = [
         name: "Kansas City Chiefs",
         id: 'chiefs',
         address: "https://www.chiefs.com/news",
-        base: "https://www.chiefs.com",
+        base: "",
         home_field: "Arrowhead Stadium",
         conference: "AFC",
         division: "West"
@@ -139,7 +139,7 @@ const nfl_teams = [
         name: "Denver Broncos",
         id: 'broncos',
         address: "https://www.denverbroncos.com/news",
-        base: "https://www.denverbroncos.com",
+        base: "",
         home_field: "Empower Field at Mile High",
         conference: "AFC",
         division: "West"
@@ -157,7 +157,7 @@ const nfl_teams = [
         name: "Philadelphia Eagles",
         id: 'eagles',
         address: "https://www.philadelphiaeagles.com/news",
-        base: "https://www.philadelphiaeagles.com",
+        base: "",
         home_field: "Lincoln Financial Field",
         conference: "NFC",
         division: "East"
@@ -193,7 +193,7 @@ const nfl_teams = [
         name: "Minnesota Vikings",
         id: 'vikings',
         address: "https://www.vikings.com/news/all-news",
-        base: "https://www.vikings.com",
+        base: "",
         home_field: "U.S. Bank Stadium",
         conference: "NFC",
         division: "North"
@@ -238,7 +238,7 @@ const nfl_teams = [
         name: "Carolina Panthers",
         id: 'panthers',
         address: "https://www.panthers.com/news",
-        base: "https://www.panthers.com",
+        base: "",
         home_field: "Bank of America Stadium",
         conference: "NFC",
         division: "South"
